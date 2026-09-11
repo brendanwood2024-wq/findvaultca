@@ -21,8 +21,8 @@
     body {
       font-family: Inter, Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at 15% 10%, rgba(76, 29, 149, 0.20), transparent 30%),
-        radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.18), transparent 30%),
+        radial-gradient(circle at 15% 10%, rgba(76,29,149,.20), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(37,99,235,.18), transparent 30%),
         #070b18;
       color: #f8fafc;
       min-height: 100vh;
@@ -39,16 +39,14 @@
       margin: 0 auto;
     }
 
-    /* HEADER */
-
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(7, 11, 24, 0.82);
+      background: rgba(7,11,24,.82);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
 
     .nav {
@@ -65,7 +63,7 @@
       gap: 11px;
       font-size: 21px;
       font-weight: 800;
-      letter-spacing: -0.5px;
+      letter-spacing: -.5px;
     }
 
     .logo-icon {
@@ -74,7 +72,7 @@
       display: grid;
       place-items: center;
       border-radius: 12px;
-      background: linear-gradient(135deg, #6366f1, #2563eb);
+      background: linear-gradient(135deg,#6366f1,#2563eb);
       box-shadow: 0 8px 30px rgba(79,70,229,.35);
       font-size: 18px;
     }
@@ -93,7 +91,7 @@
     }
 
     .nav-links a:hover {
-      color: #ffffff;
+      color: #fff;
     }
 
     .nav-cta {
@@ -148,7 +146,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(48px, 7vw, 82px);
+      font-size: clamp(48px,7vw,82px);
       line-height: .98;
       letter-spacing: -4px;
       max-width: 760px;
@@ -156,7 +154,7 @@
     }
 
     .hero h1 span {
-      background: linear-gradient(90deg, #ffffff, #8fa5ff 55%, #a78bfa);
+      background: linear-gradient(90deg,#fff,#8fa5ff 55%,#a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -184,7 +182,7 @@
       border-radius: 12px;
       font-size: 14px;
       font-weight: 800;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition: transform .2s ease,box-shadow .2s ease;
     }
 
     .btn:hover {
@@ -192,7 +190,7 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #6366f1, #2563eb);
+      background: linear-gradient(135deg,#6366f1,#2563eb);
       box-shadow: 0 14px 35px rgba(37,99,235,.25);
     }
 
@@ -213,7 +211,7 @@
       border-radius: 28px;
       border: 1px solid rgba(255,255,255,.08);
       background:
-        linear-gradient(145deg, rgba(99,102,241,.13), rgba(37,99,235,.05)),
+        linear-gradient(145deg,rgba(99,102,241,.13),rgba(37,99,235,.05)),
         rgba(255,255,255,.025);
       position: relative;
       overflow: hidden;
@@ -231,7 +229,7 @@
       width: 230px;
       height: 230px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(99,102,241,.45), rgba(37,99,235,.05));
+      background: linear-gradient(135deg,rgba(99,102,241,.45),rgba(37,99,235,.05));
       filter: blur(12px);
     }
 
@@ -296,7 +294,7 @@
     }
 
     .section-heading h2 {
-      font-size: clamp(34px, 5vw, 54px);
+      font-size: clamp(34px,5vw,54px);
       line-height: 1;
       letter-spacing: -2.5px;
     }
@@ -309,7 +307,7 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2,minmax(0,1fr));
       gap: 24px;
     }
 
@@ -317,9 +315,12 @@
       border-radius: 23px;
       overflow: hidden;
       background:
-        linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+        linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
       border: 1px solid rgba(255,255,255,.08);
-      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
     }
 
     .product-card:hover {
@@ -381,7 +382,7 @@
       gap: 8px;
       padding: 12px 16px;
       border-radius: 11px;
-      background: #ffffff;
+      background: #fff;
       color: #101522;
       font-size: 13px;
       font-weight: 900;
@@ -405,7 +406,7 @@
       padding: 55px;
       border-radius: 26px;
       background:
-        linear-gradient(135deg, rgba(99,102,241,.1), rgba(37,99,235,.035)),
+        linear-gradient(135deg,rgba(99,102,241,.1),rgba(37,99,235,.035)),
         rgba(255,255,255,.025);
       border: 1px solid rgba(255,255,255,.08);
     }
@@ -477,7 +478,8 @@
 
     /* MOBILE */
 
-    @media (max-width: 850px) {
+    @media (max-width:850px) {
+
       .nav {
         min-height: 68px;
       }
@@ -527,9 +529,10 @@
       }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width:560px) {
+
       .container {
-        width: min(100% - 26px, 1160px);
+        width: min(100% - 26px,1160px);
       }
 
       .nav-links {
@@ -587,6 +590,7 @@
 <body>
 
   <!-- HEADER -->
+
   <header>
     <div class="container nav">
 
@@ -607,12 +611,15 @@
 
 
   <!-- HERO -->
+
   <main id="home">
 
     <section class="hero">
+
       <div class="container hero-grid">
 
         <div>
+
           <div class="eyebrow">
             ✦ DISCOVER • EXPLORE • FIND
           </div>
@@ -623,11 +630,12 @@
           </h1>
 
           <p>
-            Welcome to FindVault — a curated place to discover interesting,
-            useful, and standout products from around the web.
+            Welcome to FindVault — a curated place to discover
+            interesting, useful, and standout products from around the web.
           </p>
 
           <div class="buttons">
+
             <a href="#products" class="btn btn-primary">
               Explore Products →
             </a>
@@ -635,36 +643,62 @@
             <a href="#about" class="btn btn-secondary">
               Learn More
             </a>
+
           </div>
+
         </div>
 
 
+        <!-- HERO HAS NO PHOTO -->
+
         <div class="hero-art">
+
           <div class="hero-art-content">
+
             <div class="symbol">✦</div>
-            <h3>Better Finds.<br>Bigger Moments.</h3>
-            <p>Discover something worth adding to your vault.</p>
+
+            <h3>
+              Better Finds.<br>
+              Bigger Moments.
+            </h3>
+
+            <p>
+              Discover something worth adding to your vault.
+            </p>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
 
     <!-- PRODUCTS -->
+
     <section class="section" id="products">
 
       <div class="container">
 
         <div class="section-heading">
+
           <div>
-            <div class="section-label">Featured Finds</div>
-            <h2>Products</h2>
+
+            <div class="section-label">
+              Featured Finds
+            </div>
+
+            <h2>
+              Products
+            </h2>
+
           </div>
 
           <p>
             A selection of products worth taking a closer look at.
           </p>
+
         </div>
 
 
@@ -672,13 +706,16 @@
 
 
           <!-- LOOP QUIET -->
+
           <article class="product-card">
 
             <div class="product-image">
+
               <img
-                src="data:image/jpeg;base64,''' + loop + '''"
                 alt="Loop Quiet Earplugs"
+                src="data:image/webp;base64,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"
               >
+
             </div>
 
             <div class="product-info">
@@ -687,7 +724,9 @@
                 Featured Find
               </span>
 
-              <h3>Loop Quiet Earplugs</h3>
+              <h3>
+                Loop Quiet Earplugs
+              </h3>
 
               <p>
                 A compact option designed for people looking to reduce
@@ -704,17 +743,21 @@
               </a>
 
             </div>
+
           </article>
 
 
           <!-- WIRELESS HEADPHONES -->
+
           <article class="product-card">
 
             <div class="product-image">
+
               <img
-                src="data:image/jpeg;base64,''' + head + '''"
                 alt="Wireless Over-Ear Headphones"
+                src="data:image/webp;base64,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"
               >
+
             </div>
 
             <div class="product-info">
@@ -723,7 +766,9 @@
                 Featured Find
               </span>
 
-              <h3>Wireless Over-Ear Headphones</h3>
+              <h3>
+                Wireless Over-Ear Headphones
+              </h3>
 
               <p>
                 A wireless over-ear option for listening to music,
@@ -740,15 +785,17 @@
               </a>
 
             </div>
-          </article>
 
+          </article>
 
         </div>
       </div>
+
     </section>
 
 
     <!-- ABOUT -->
+
     <section class="about" id="about">
 
       <div class="container">
@@ -756,7 +803,10 @@
         <div class="about-box">
 
           <div>
-            <div class="section-label">About FindVault</div>
+
+            <div class="section-label">
+              About FindVault
+            </div>
 
             <h2>
               Find something
@@ -769,33 +819,51 @@
               We showcase products that catch our attention and
               give visitors a simple way to learn more about them.
             </p>
+
           </div>
 
 
           <div class="about-right">
 
             <div class="feature">
-              <strong>Curated Products</strong>
+
+              <strong>
+                Curated Products
+              </strong>
+
               <span>
                 We focus on products that are interesting,
                 useful, or worth checking out.
               </span>
+
             </div>
 
+
             <div class="feature">
-              <strong>Simple Discovery</strong>
+
+              <strong>
+                Simple Discovery
+              </strong>
+
               <span>
                 No complicated browsing — just products,
                 information, and direct links.
               </span>
+
             </div>
 
+
             <div class="feature">
-              <strong>Transparent Links</strong>
+
+              <strong>
+                Transparent Links
+              </strong>
+
               <span>
                 Some product links may be affiliate links,
                 which helps support FindVault.
               </span>
+
             </div>
 
           </div>
@@ -803,25 +871,37 @@
         </div>
 
       </div>
+
     </section>
 
   </main>
 
 
   <!-- FOOTER -->
+
   <footer>
 
     <div class="container footer-inner">
 
       <div>
-        <div class="footer-brand">FindVault</div>
-        <div>Discover. Explore. Find.</div>
+
+        <div class="footer-brand">
+          FindVault
+        </div>
+
+        <div>
+          Discover. Explore. Find.
+        </div>
+
       </div>
 
+
       <div class="affiliate">
+
         Some links on FindVault may be affiliate links.
         If you purchase something through one of these links,
         FindVault may earn a commission at no additional cost to you.
+
       </div>
 
     </div>
