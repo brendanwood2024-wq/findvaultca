@@ -1,28 +1,1148 @@
-✦FINDVAULT
-Home
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="FindVault — discover interesting products worth checking out.">
+
+<title>FindVault | Products Worth Checking Out</title>
+
+<style>
+
+:root {
+  --bg:#020914;
+  --panel:#071426;
+  --panel2:#091a30;
+  --text:#f7f9ff;
+  --muted:#b9c5d9;
+  --line:rgba(85,145,255,.28);
+  --blue:#168cff;
+  --purple:#8a35ff;
+  --cyan:#35d8ff;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 85% 8%,rgba(40,82,255,.18),transparent 28%),
+    radial-gradient(circle at 10% 35%,rgba(130,35,255,.10),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.55;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.container {
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(2,9,20,.86);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav {
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
+.logo {
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#13a8ff,#7437ff);
+  box-shadow:0 0 24px rgba(83,74,255,.45);
+  font-size:24px;
+  font-weight:900;
+}
+
+.navlinks {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.navlinks a {
+  padding:23px 16px;
+  color:#e7ebf6;
+  font-weight:650;
+  position:relative;
+}
+
+.navlinks a:hover,
+.navlinks a.active {
+  color:#5d9dff;
+}
+
+.navlinks a.active:after {
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:0;
+  height:3px;
+  border-radius:5px;
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+}
+
+.menu {
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:28px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  padding:76px 0 82px;
+  min-height:540px;
+  border-bottom:1px solid var(--line);
+
+  background:
+    radial-gradient(circle at 72% 48%,rgba(0,93,255,.23),transparent 25%),
+    linear-gradient(135deg,rgba(13,32,64,.75),rgba(2,9,20,.95));
+}
+
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:45px;
+  align-items:center;
+}
+
+.pill {
+  display:inline-flex;
+  padding:9px 16px;
+  border:1px solid #9b42ff;
+  border-radius:999px;
+  color:#e8ddff;
+  font-weight:800;
+  letter-spacing:.6px;
+  font-size:13px;
+  background:rgba(116,45,255,.08);
+}
+
+h1 {
+  font-size:clamp(45px,6vw,78px);
+  line-height:1.02;
+  margin:20px 0;
+}
+
+.gradient {
+  background:linear-gradient(90deg,#1598ff,#7b31ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p {
+  max-width:650px;
+  color:#d3dced;
+  font-size:19px;
+}
+
+.hero-buttons {
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 22px;
+  border-radius:15px;
+  font-weight:850;
+  border:1px solid transparent;
+  transition:.2s transform,.2s box-shadow;
+}
+
+.btn:hover {
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(20,115,255,.22);
+}
+
+.primary {
+  background:linear-gradient(90deg,#7531ff,#158cff);
+}
+
+.secondary {
+  border-color:var(--line);
+  background:rgba(255,255,255,.03);
+}
+
+
+/* =========================
+   HERO DECORATION
+========================= */
+
+.hero-art {
+  min-height:330px;
+  border:1px solid rgba(47,119,255,.25);
+  border-radius:28px;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(circle,rgba(28,86,190,.23),transparent 58%);
+}
+
+.hero-art:before {
+  content:"";
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:rgba(55,74,255,.13);
+  filter:blur(5px);
+}
+
+.hero-word {
+  position:absolute;
+  font-size:clamp(28px,4vw,50px);
+  font-weight:950;
+  text-align:center;
+  letter-spacing:-1px;
+  color:#eef3ff;
+  opacity:.95;
+}
+
+.hero-word span {
+  display:block;
+  color:#409cff;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  padding:58px 0;
+}
+
+.section-label {
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1.8px;
+  color:#8d52ff;
+  text-transform:uppercase;
+}
+
+.section h2 {
+  font-size:48px;
+  line-height:1.05;
+  margin:5px 0 8px;
+}
+
+.section-intro {
+  color:var(--muted);
+  font-size:17px;
+  margin-bottom:28px;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px;
+}
+
+.card {
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:12px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,29,53,.92),
+      rgba(5,19,36,.94)
+    );
+
+  box-shadow:0 20px 60px rgba(0,0,0,.18);
+}
+
+.photo-wrap {
+  height:310px;
+  border-radius:15px;
+  overflow:hidden;
+  background:#fff;
+  position:relative;
+}
+
+.photo-wrap img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.badge {
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:linear-gradient(90deg,#7133ff,#3e7dff);
+  padding:7px 13px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.5px;
+  z-index:2;
+}
+
+.card-body {
+  padding:18px 6px 8px;
+}
+
+.card h3 {
+  font-size:26px;
+  margin-bottom:5px;
+}
+
+.tagline {
+  color:#dbe3f2;
+  font-size:17px;
+}
+
+.desc {
+  color:#b6c3d8;
+  margin:12px 0 18px;
+}
+
+.amazon {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  background:linear-gradient(
+    90deg,
+    #7430ff,
+    #158dff
+  );
+
+  padding:13px 19px;
+  border-radius:13px;
+  font-weight:900;
+
+  transition:.2s;
+}
+
+.amazon:hover {
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px rgba(32,116,255,.3);
+}
+
+.features {
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:20px;
+  color:#d0daeb;
+  font-size:13px;
+}
+
+.features span {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+
+
+/* =========================
+   EMPTY PHOTO SECTION
+========================= */
+
+/*
+   The Product Photos section has intentionally
+   been left empty as requested.
+*/
+
+#photos {
+  padding:20px 0;
+  min-height:20px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:34px;
+
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(9,28,52,.85),
+      rgba(5,17,31,.9)
+    );
+}
+
+.about h2 {
+  font-size:34px;
+  margin:4px 0 8px;
+}
+
+.about p {
+  color:#c0ccdf;
+  margin-top:10px;
+}
+
+.disclosure {
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:22px;
+  background:rgba(255,255,255,.02);
+}
+
+.disclosure h3 {
+  margin-bottom:8px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  margin-top:20px;
+  border-top:1px solid var(--line);
+  padding:28px 0 35px;
+}
+
+.footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footer-links {
+  display:flex;
+  gap:25px;
+  color:#c5d0e2;
+  font-size:14px;
+}
+
+.footer-links a:hover {
+  color:#fff;
+}
+
+.small {
+  color:#8997ad;
+  font-size:13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px) {
+
+  .nav {
+    height:64px;
+  }
+
+  .brand {
+    font-size:20px;
+  }
+
+  .logo {
+    width:36px;
+    height:36px;
+    font-size:20px;
+  }
+
+  .menu {
+    display:block;
+  }
+
+  .navlinks {
+    display:none;
+
+    position:absolute;
+    left:0;
+    right:0;
+    top:64px;
+
+    background:#050d19;
+    border-bottom:1px solid var(--line);
+
+    padding:10px 4%;
+
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .navlinks.open {
+    display:flex;
+  }
+
+  .navlinks a {
+    padding:13px 8px;
+  }
+
+  .navlinks a.active:after {
+    display:none;
+  }
+
+  .hero {
+    padding:55px 0;
+  }
+
+  .hero-grid,
+  .about {
+    grid-template-columns:1fr;
+  }
+
+  .hero-art {
+    min-height:180px;
+  }
+
+  .products {
+    grid-template-columns:1fr;
+  }
+
+  .photo-wrap {
+    height:280px;
+  }
+
+  .section h2 {
+    font-size:39px;
+  }
+
+}
+
+
+/* SMALL PHONES */
+
+@media(max-width:480px) {
+
+  h1 {
+    font-size:43px;
+  }
+
+  .hero p {
+    font-size:16px;
+  }
+
+  .hero-buttons {
+    flex-direction:column;
+  }
+
+  .btn {
+    width:100%;
+  }
+
+  .photo-wrap {
+    height:250px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container nav">
+
+<a class="brand" href="#home" aria-label="FindVault home">
+
+<div class="logo">
+◉
+</div>
+
+<span>
+FINDVAULT
+</span>
+
+</a>
+
+
+<button
+class="menu"
+aria-label="Open menu"
+onclick="toggleMenu()">
+
+☰
+
+</button>
+
+
+<nav class="navlinks" id="navlinks">
+
+<a
+class="active"
+href="#home">
+
+⌂ &nbsp;Home
+
+</a>
+
+<a href="#products">
+
+▢ &nbsp;Products
+
+</a>
+
+<a href="#about">
+
+ⓘ &nbsp;About
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+
+<!-- HERO -->
+
+<section
+class="hero"
+id="home">
+
+<div class="container hero-grid">
+
+
+<div>
+
+<div class="pill">
+
+✦ &nbsp; DISCOVER • EXPLORE • FIND
+
+</div>
+
+
+<h1>
+
+Real Products.<br>
+
+<span class="gradient">
+
+Worth Checking Out.
+
+</span>
+
+</h1>
+
+
+<p>
+
+FindVault helps you discover interesting products through recommendations, product highlights, and useful creator insights.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+class="btn primary"
+href="#products">
+
+🛍️ &nbsp; Explore Products →
+
+</a>
+
+
+<a
+class="btn secondary"
+href="#about">
+
+Learn More
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- NO PRODUCT PHOTO AT TOP -->
+
+<div class="hero-art">
+
+<div class="hero-word">
+
+Better Finds.
+
+<span>
+
+Bigger Moments.
+
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section
+class="section"
+id="products">
+
+<div class="container">
+
+
+<div class="section-label">
+
+Featured Products
+
+</div>
+
+
+<h2>
+
 Products
-About
-FEATURED FIND
-Discover products worth checking out.
-FindVault keeps product discovery simple — featuring interesting products and direct links so you can learn more.
-Explore Products →
-￼
-Products
-A small collection of products featured by FindVault.
-￼
-FEATURED PRODUCT
-Wireless Over-Ear Headphones
-Black over-ear wireless headphones made for travel, music, and everyday listening.
-View Product →
-￼
-FEATURED PRODUCT
+
+</h2>
+
+
+<p class="section-intro">
+
+Handpicked finds with real value. Check out the latest featured products below.
+
+</p>
+
+
+
+<div class="products">
+
+
+<!-- LOOP QUIET -->
+
+<article
+class="card"
+id="loop">
+
+
+<div class="photo-wrap">
+
+<span class="badge">
+
+FEATURED
+
+</span>
+
+
+<img
+src="data:image/jpeg;base64,REPLACE_WITH_LOOP_IMAGE_DATA"
+alt="Loop Quiet Earplugs">
+
+</div>
+
+
+<div class="card-body">
+
+
+<h3>
+
 Loop Quiet Earplugs
-A compact earplug option for people looking for a simple way to reduce surrounding noise.
-View Product →
+
+</h3>
+
+
+<div class="tagline">
+
+Better focus. Less noise.
+
+</div>
+
+
+<p class="desc">
+
+Get more peace and quiet with Loop Quiet Earplugs. Perfect for travel, work, studying, and everyday life.
+
+</p>
+
+
+<a
+class="amazon"
+href="https://amzn.to/4xKMxjd"
+target="_blank"
+rel="nofollow sponsored noopener">
+
+a &nbsp; View on Amazon →
+
+</a>
+
+
+<div class="features">
+
+<span>
+◉ Noise Reduction
+</span>
+
+<span>
+▣ Travel Friendly
+</span>
+
+<span>
+◌ Everyday Comfort
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- WIRELESS HEADPHONES -->
+
+<article
+class="card"
+id="headphones">
+
+
+<div class="photo-wrap">
+
+<span class="badge">
+
+FEATURED
+
+</span>
+
+
+<img
+src="data:image/jpeg;base64,REPLACE_WITH_HEADPHONES_IMAGE_DATA"
+alt="Wireless Over-Ear Headphones">
+
+</div>
+
+
+<div class="card-body">
+
+
+<h3>
+
+Wireless Over-Ear Headphones
+
+</h3>
+
+
+<div class="tagline">
+
+Immersive sound. All-day comfort.
+
+</div>
+
+
+<p class="desc">
+
+Enjoy powerful sound and long-lasting battery life with these wireless over-ear headphones. Great for music, travel, and everyday use.
+
+</p>
+
+
+<a
+class="amazon"
+href="https://amzn.to/3STNaYL"
+target="_blank"
+rel="nofollow sponsored noopener">
+
+a &nbsp; View on Amazon →
+
+</a>
+
+
+<div class="features">
+
+<span>
+♫ Hi-Res Audio
+</span>
+
+<span>
+▣ Long Battery Life
+</span>
+
+<span>
+✈ Travel Friendly
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     EMPTY PHOTO SECTION
+========================= -->
+
+<section id="photos">
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+class="section"
+id="about">
+
+<div class="container about">
+
+
+<div>
+
+<div class="section-label">
+
 About FindVault
-FindVault is an independent product-discovery website featuring products that may be worth a closer look.
-The goal is simple: make it easier to discover products without overwhelming you with endless choices.
-Affiliate Disclosure: Some links on FindVault may be affiliate links. If you make a qualifying purchase through an affiliate link, FindVault may earn a commission at no additional cost to you.
+
+</div>
+
+
+<h2>
+
+Our Mission
+
+</h2>
+
+
+<p>
+
+FindVault is a simple product-discovery website focused on interesting finds, useful recommendations, and products worth taking a closer look at.
+
+</p>
+
+
+<p>
+
+We keep it simple, useful, and easy to explore — so visitors can find products without endless searching.
+
+</p>
+
+</div>
+
+
+
+<div class="disclosure">
+
+<h3>
+
+ⓘ &nbsp; Affiliate Disclosure
+
+</h3>
+
+
+<p>
+
+Some links on FindVault may be affiliate links. If you purchase something through one of these links, FindVault may earn a commission at no additional cost to you.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container footer">
+
+
+<a
+class="brand"
+href="#home">
+
+<div class="logo">
+
+◉
+
+</div>
+
+<span>
+
+FINDVAULT
+
+</span>
+
+</a>
+
+
+
+<div class="footer-links">
+
+<a href="#home">
+
+Home
+
+</a>
+
+<a href="#products">
+
+Products
+
+</a>
+
+<a href="#about">
+
+About
+
+</a>
+
+</div>
+
+
+
+<div class="small">
+
 © 2026 FindVault. All rights reserved.
 
-FindVault is an independent website and is not owned, operated, or endorsed by Amazon.
+</div>
+
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+function toggleMenu() {
+
+  document
+    .getElementById("navlinks")
+    .classList
+    .toggle("open");
+
+}
+
+
+document
+.querySelectorAll(".navlinks a")
+.forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    document
+      .getElementById("navlinks")
+      .classList
+      .remove("open");
+
+  });
+
+});
+
+</script>
+
+
+</body>
+</html>
