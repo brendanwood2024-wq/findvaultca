@@ -1,1148 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="FindVault — discover interesting products worth checking out.">
-
-<title>FindVault | Products Worth Checking Out</title>
-
-<style>
-
-:root {
-  --bg:#020914;
-  --panel:#071426;
-  --panel2:#091a30;
-  --text:#f7f9ff;
-  --muted:#b9c5d9;
-  --line:rgba(85,145,255,.28);
-  --blue:#168cff;
-  --purple:#8a35ff;
-  --cyan:#35d8ff;
-}
-
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html {
-  scroll-behavior:smooth;
-}
-
-body {
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(circle at 85% 8%,rgba(40,82,255,.18),transparent 28%),
-    radial-gradient(circle at 10% 35%,rgba(130,35,255,.10),transparent 25%),
-    var(--bg);
-  color:var(--text);
-  line-height:1.55;
-}
-
-a {
-  color:inherit;
-  text-decoration:none;
-}
-
-.container {
-  width:min(1180px,92%);
-  margin:auto;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(2,9,20,.86);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
-}
-
-.nav {
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:.5px;
-}
-
-.logo {
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,#13a8ff,#7437ff);
-  box-shadow:0 0 24px rgba(83,74,255,.45);
-  font-size:24px;
-  font-weight:900;
-}
-
-.navlinks {
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.navlinks a {
-  padding:23px 16px;
-  color:#e7ebf6;
-  font-weight:650;
-  position:relative;
-}
-
-.navlinks a:hover,
-.navlinks a.active {
-  color:#5d9dff;
-}
-
-.navlinks a.active:after {
-  content:"";
-  position:absolute;
-  left:16px;
-  right:16px;
-  bottom:0;
-  height:3px;
-  border-radius:5px;
-  background:linear-gradient(90deg,var(--purple),var(--blue));
-}
-
-.menu {
-  display:none;
-  background:none;
-  border:0;
-  color:white;
-  font-size:28px;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  padding:76px 0 82px;
-  min-height:540px;
-  border-bottom:1px solid var(--line);
-
-  background:
-    radial-gradient(circle at 72% 48%,rgba(0,93,255,.23),transparent 25%),
-    linear-gradient(135deg,rgba(13,32,64,.75),rgba(2,9,20,.95));
-}
-
-.hero-grid {
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:45px;
-  align-items:center;
-}
-
-.pill {
-  display:inline-flex;
-  padding:9px 16px;
-  border:1px solid #9b42ff;
-  border-radius:999px;
-  color:#e8ddff;
-  font-weight:800;
-  letter-spacing:.6px;
-  font-size:13px;
-  background:rgba(116,45,255,.08);
-}
-
-h1 {
-  font-size:clamp(45px,6vw,78px);
-  line-height:1.02;
-  margin:20px 0;
-}
-
-.gradient {
-  background:linear-gradient(90deg,#1598ff,#7b31ff);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.hero p {
-  max-width:650px;
-  color:#d3dced;
-  font-size:19px;
-}
-
-.hero-buttons {
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top:28px;
-}
-
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:14px 22px;
-  border-radius:15px;
-  font-weight:850;
-  border:1px solid transparent;
-  transition:.2s transform,.2s box-shadow;
-}
-
-.btn:hover {
-  transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(20,115,255,.22);
-}
-
-.primary {
-  background:linear-gradient(90deg,#7531ff,#158cff);
-}
-
-.secondary {
-  border-color:var(--line);
-  background:rgba(255,255,255,.03);
-}
-
-
-/* =========================
-   HERO DECORATION
-========================= */
-
-.hero-art {
-  min-height:330px;
-  border:1px solid rgba(47,119,255,.25);
-  border-radius:28px;
-  display:grid;
-  place-items:center;
-  position:relative;
-  overflow:hidden;
-
-  background:
-    radial-gradient(circle,rgba(28,86,190,.23),transparent 58%);
-}
-
-.hero-art:before {
-  content:"";
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  background:rgba(55,74,255,.13);
-  filter:blur(5px);
-}
-
-.hero-word {
-  position:absolute;
-  font-size:clamp(28px,4vw,50px);
-  font-weight:950;
-  text-align:center;
-  letter-spacing:-1px;
-  color:#eef3ff;
-  opacity:.95;
-}
-
-.hero-word span {
-  display:block;
-  color:#409cff;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section {
-  padding:58px 0;
-}
-
-.section-label {
-  font-size:14px;
-  font-weight:900;
-  letter-spacing:1.8px;
-  color:#8d52ff;
-  text-transform:uppercase;
-}
-
-.section h2 {
-  font-size:48px;
-  line-height:1.05;
-  margin:5px 0 8px;
-}
-
-.section-intro {
-  color:var(--muted);
-  font-size:17px;
-  margin-bottom:28px;
-}
-
-
-/* =========================
-   PRODUCTS
-========================= */
-
-.products {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
-}
-
-.card {
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:12px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(10,29,53,.92),
-      rgba(5,19,36,.94)
-    );
-
-  box-shadow:0 20px 60px rgba(0,0,0,.18);
-}
-
-.photo-wrap {
-  height:310px;
-  border-radius:15px;
-  overflow:hidden;
-  background:#fff;
-  position:relative;
-}
-
-.photo-wrap img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
-
-.badge {
-  position:absolute;
-  top:14px;
-  left:14px;
-  background:linear-gradient(90deg,#7133ff,#3e7dff);
-  padding:7px 13px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.5px;
-  z-index:2;
-}
-
-.card-body {
-  padding:18px 6px 8px;
-}
-
-.card h3 {
-  font-size:26px;
-  margin-bottom:5px;
-}
-
-.tagline {
-  color:#dbe3f2;
-  font-size:17px;
-}
-
-.desc {
-  color:#b6c3d8;
-  margin:12px 0 18px;
-}
-
-.amazon {
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-
-  background:linear-gradient(
-    90deg,
-    #7430ff,
-    #158dff
-  );
-
-  padding:13px 19px;
-  border-radius:13px;
-  font-weight:900;
-
-  transition:.2s;
-}
-
-.amazon:hover {
-  transform:translateY(-2px);
-  box-shadow:0 10px 25px rgba(32,116,255,.3);
-}
-
-.features {
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  margin-top:20px;
-  color:#d0daeb;
-  font-size:13px;
-}
-
-.features span {
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-}
-
-
-/* =========================
-   EMPTY PHOTO SECTION
-========================= */
-
-/*
-   The Product Photos section has intentionally
-   been left empty as requested.
-*/
-
-#photos {
-  padding:20px 0;
-  min-height:20px;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:34px;
-
-  display:grid;
-  grid-template-columns:1.25fr .75fr;
-  gap:30px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(9,28,52,.85),
-      rgba(5,17,31,.9)
-    );
-}
-
-.about h2 {
-  font-size:34px;
-  margin:4px 0 8px;
-}
-
-.about p {
-  color:#c0ccdf;
-  margin-top:10px;
-}
-
-.disclosure {
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:22px;
-  background:rgba(255,255,255,.02);
-}
-
-.disclosure h3 {
-  margin-bottom:8px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  margin-top:20px;
-  border-top:1px solid var(--line);
-  padding:28px 0 35px;
-}
-
-.footer {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.footer-links {
-  display:flex;
-  gap:25px;
-  color:#c5d0e2;
-  font-size:14px;
-}
-
-.footer-links a:hover {
-  color:#fff;
-}
-
-.small {
-  color:#8997ad;
-  font-size:13px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:800px) {
-
-  .nav {
-    height:64px;
-  }
-
-  .brand {
-    font-size:20px;
-  }
-
-  .logo {
-    width:36px;
-    height:36px;
-    font-size:20px;
-  }
-
-  .menu {
-    display:block;
-  }
-
-  .navlinks {
-    display:none;
-
-    position:absolute;
-    left:0;
-    right:0;
-    top:64px;
-
-    background:#050d19;
-    border-bottom:1px solid var(--line);
-
-    padding:10px 4%;
-
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .navlinks.open {
-    display:flex;
-  }
-
-  .navlinks a {
-    padding:13px 8px;
-  }
-
-  .navlinks a.active:after {
-    display:none;
-  }
-
-  .hero {
-    padding:55px 0;
-  }
-
-  .hero-grid,
-  .about {
-    grid-template-columns:1fr;
-  }
-
-  .hero-art {
-    min-height:180px;
-  }
-
-  .products {
-    grid-template-columns:1fr;
-  }
-
-  .photo-wrap {
-    height:280px;
-  }
-
-  .section h2 {
-    font-size:39px;
-  }
-
-}
-
-
-/* SMALL PHONES */
-
-@media(max-width:480px) {
-
-  h1 {
-    font-size:43px;
-  }
-
-  .hero p {
-    font-size:16px;
-  }
-
-  .hero-buttons {
-    flex-direction:column;
-  }
-
-  .btn {
-    width:100%;
-  }
-
-  .photo-wrap {
-    height:250px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FindVault — discover products worth checking out.">
+  <meta name="theme-color" content="#070b18">
+  <title>FindVault | Real Products. Worth Checking Out.</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(76, 29, 149, 0.20), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(37, 99, 235, 0.18), transparent 30%),
+        #070b18;
+      color: #f8fafc;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 24, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #6366f1, #2563eb);
+      box-shadow: 0 8px 30px rgba(79,70,229,.35);
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      color: #aeb8cc;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-cta {
+      padding: 11px 17px;
+      border-radius: 11px;
+      background: rgba(99,102,241,.12);
+      border: 1px solid rgba(129,140,248,.25);
+      color: #dfe3ff !important;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 105px 0 95px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -250px;
+      top: 30px;
+      background: rgba(37,99,235,.13);
+      filter: blur(90px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(129,140,248,.22);
+      background: rgba(99,102,241,.08);
+      color: #aeb8ff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: .98;
+      letter-spacing: -4px;
+      max-width: 760px;
+      margin-bottom: 27px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #ffffff, #8fa5ff 55%, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: #9ba7bd;
+      font-size: 18px;
+      max-width: 650px;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #2563eb);
+      box-shadow: 0 14px 35px rgba(37,99,235,.25);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 18px 42px rgba(37,99,235,.38);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #d7deeb;
+    }
+
+    /* HERO ART */
+
+    .hero-art {
+      min-height: 430px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(145deg, rgba(99,102,241,.13), rgba(37,99,235,.05)),
+        rgba(255,255,255,.025);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05),
+        0 30px 80px rgba(0,0,0,.25);
+    }
+
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(99,102,241,.45), rgba(37,99,235,.05));
+      filter: blur(12px);
+    }
+
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 1px solid rgba(165,180,252,.15);
+      box-shadow:
+        0 0 80px rgba(99,102,241,.18),
+        inset 0 0 50px rgba(99,102,241,.08);
+    }
+
+    .hero-art-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 35px;
+    }
+
+    .hero-art-content .symbol {
+      font-size: 48px;
+      margin-bottom: 18px;
+      opacity: .9;
+    }
+
+    .hero-art-content h3 {
+      font-size: 27px;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .hero-art-content p {
+      font-size: 14px;
+      color: #8995aa;
+      margin: 0;
+    }
+
+    /* PRODUCTS */
+
+    .section {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 38px;
+    }
+
+    .section-label {
+      color: #818cf8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 900;
+      margin-bottom: 9px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1;
+      letter-spacing: -2.5px;
+    }
+
+    .section-heading p {
+      max-width: 420px;
+      color: #8793a9;
+      font-size: 14px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      border-radius: 23px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      border: 1px solid rgba(255,255,255,.08);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(129,140,248,.3);
+      box-shadow: 0 25px 60px rgba(0,0,0,.28);
+    }
+
+    .product-image {
+      height: 390px;
+      padding: 18px;
+      background: #eef1f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 13px;
+    }
+
+    .product-info {
+      padding: 25px;
+    }
+
+    .product-tag {
+      display: inline-block;
+      color: #a5b4fc;
+      background: rgba(99,102,241,.1);
+      border: 1px solid rgba(129,140,248,.18);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+
+    .product-info h3 {
+      font-size: 25px;
+      letter-spacing: -.7px;
+      margin-bottom: 9px;
+    }
+
+    .product-info p {
+      color: #8e9aaf;
+      font-size: 14px;
+      margin-bottom: 21px;
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 11px;
+      background: #ffffff;
+      color: #101522;
+      font-size: 13px;
+      font-weight: 900;
+      transition: transform .2s ease;
+    }
+
+    .product-link:hover {
+      transform: translateX(3px);
+    }
+
+    /* ABOUT */
+
+    .about {
+      padding: 90px 0 100px;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      padding: 55px;
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(99,102,241,.1), rgba(37,99,235,.035)),
+        rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .about-box h2 {
+      font-size: 39px;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 17px;
+    }
+
+    .about-box p {
+      color: #909cb1;
+      font-size: 15px;
+    }
+
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 18px;
+      border-radius: 15px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .feature span {
+      color: #8591a7;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 35px 0;
+      color: #758198;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .footer-brand {
+      color: #cbd5e1;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .affiliate {
+      max-width: 580px;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a:nth-child(2),
+      .nav-links a:nth-child(3) {
+        display: none;
+      }
+
+      .hero {
+        padding: 75px 0 65px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2.5px;
+      }
+
+      .hero-art {
+        min-height: 310px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 350px;
+      }
+
+      .about-box {
+        grid-template-columns: 1fr;
+        padding: 35px;
+        gap: 30px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 26px, 1160px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 15px;
+      }
+
+      .product-image {
+        height: 300px;
+      }
+
+      .about-box h2 {
+        font-size: 32px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .affiliate {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
 
-<!-- =========================
-     HEADER
-========================= -->
+      <a href="#home" class="logo">
+        <span class="logo-icon">◉</span>
+        <span>FindVault</span>
+      </a>
 
-<header>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#products" class="nav-cta">Explore Finds →</a>
+      </nav>
 
-<div class="container nav">
+    </div>
+  </header>
 
-<a class="brand" href="#home" aria-label="FindVault home">
 
-<div class="logo">
-◉
-</div>
+  <!-- HERO -->
+  <main id="home">
 
-<span>
-FINDVAULT
-</span>
+    <section class="hero">
+      <div class="container hero-grid">
 
-</a>
+        <div>
+          <div class="eyebrow">
+            ✦ DISCOVER • EXPLORE • FIND
+          </div>
 
+          <h1>
+            Real Products.
+            <span>Worth Checking Out.</span>
+          </h1>
 
-<button
-class="menu"
-aria-label="Open menu"
-onclick="toggleMenu()">
+          <p>
+            Welcome to FindVault — a curated place to discover interesting,
+            useful, and standout products from around the web.
+          </p>
 
-☰
+          <div class="buttons">
+            <a href="#products" class="btn btn-primary">
+              Explore Products →
+            </a>
 
-</button>
+            <a href="#about" class="btn btn-secondary">
+              Learn More
+            </a>
+          </div>
+        </div>
 
 
-<nav class="navlinks" id="navlinks">
+        <div class="hero-art">
+          <div class="hero-art-content">
+            <div class="symbol">✦</div>
+            <h3>Better Finds.<br>Bigger Moments.</h3>
+            <p>Discover something worth adding to your vault.</p>
+          </div>
+        </div>
 
-<a
-class="active"
-href="#home">
+      </div>
+    </section>
 
-⌂ &nbsp;Home
 
-</a>
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
 
-<a href="#products">
+      <div class="container">
 
-▢ &nbsp;Products
+        <div class="section-heading">
+          <div>
+            <div class="section-label">Featured Finds</div>
+            <h2>Products</h2>
+          </div>
 
-</a>
+          <p>
+            A selection of products worth taking a closer look at.
+          </p>
+        </div>
 
-<a href="#about">
 
-ⓘ &nbsp;About
+        <div class="products-grid">
 
-</a>
 
-</nav>
+          <!-- LOOP QUIET -->
+          <article class="product-card">
 
-</div>
+            <div class="product-image">
+              <img
+                src="data:image/jpeg;base64,''' + loop + '''"
+                alt="Loop Quiet Earplugs"
+              >
+            </div>
 
-</header>
+            <div class="product-info">
 
+              <span class="product-tag">
+                Featured Find
+              </span>
 
+              <h3>Loop Quiet Earplugs</h3>
 
-<!-- =========================
-     MAIN
-========================= -->
+              <p>
+                A compact option designed for people looking to reduce
+                surrounding noise and create a quieter environment.
+              </p>
 
-<main>
+              <a
+                href="https://amzn.to/4xKMxjd"
+                target="_blank"
+                rel="nofollow sponsored noopener"
+                class="product-link"
+              >
+                Check Product →
+              </a>
 
+            </div>
+          </article>
 
-<!-- HERO -->
 
-<section
-class="hero"
-id="home">
+          <!-- WIRELESS HEADPHONES -->
+          <article class="product-card">
 
-<div class="container hero-grid">
+            <div class="product-image">
+              <img
+                src="data:image/jpeg;base64,''' + head + '''"
+                alt="Wireless Over-Ear Headphones"
+              >
+            </div>
 
+            <div class="product-info">
 
-<div>
+              <span class="product-tag">
+                Featured Find
+              </span>
 
-<div class="pill">
+              <h3>Wireless Over-Ear Headphones</h3>
 
-✦ &nbsp; DISCOVER • EXPLORE • FIND
+              <p>
+                A wireless over-ear option for listening to music,
+                watching content, or enjoying your everyday audio.
+              </p>
 
-</div>
+              <a
+                href="https://amzn.to/3STNaYL"
+                target="_blank"
+                rel="nofollow sponsored noopener"
+                class="product-link"
+              >
+                Check Product →
+              </a>
 
+            </div>
+          </article>
 
-<h1>
 
-Real Products.<br>
+        </div>
+      </div>
+    </section>
 
-<span class="gradient">
 
-Worth Checking Out.
+    <!-- ABOUT -->
+    <section class="about" id="about">
 
-</span>
+      <div class="container">
 
-</h1>
+        <div class="about-box">
 
+          <div>
+            <div class="section-label">About FindVault</div>
 
-<p>
+            <h2>
+              Find something
+              worth discovering.
+            </h2>
 
-FindVault helps you discover interesting products through recommendations, product highlights, and useful creator insights.
+            <p>
+              FindVault is built around one simple idea:
+              finding cool and useful products should be easy.
+              We showcase products that catch our attention and
+              give visitors a simple way to learn more about them.
+            </p>
+          </div>
 
-</p>
 
+          <div class="about-right">
 
-<div class="hero-buttons">
+            <div class="feature">
+              <strong>Curated Products</strong>
+              <span>
+                We focus on products that are interesting,
+                useful, or worth checking out.
+              </span>
+            </div>
 
-<a
-class="btn primary"
-href="#products">
+            <div class="feature">
+              <strong>Simple Discovery</strong>
+              <span>
+                No complicated browsing — just products,
+                information, and direct links.
+              </span>
+            </div>
 
-🛍️ &nbsp; Explore Products →
+            <div class="feature">
+              <strong>Transparent Links</strong>
+              <span>
+                Some product links may be affiliate links,
+                which helps support FindVault.
+              </span>
+            </div>
 
-</a>
+          </div>
 
+        </div>
 
-<a
-class="btn secondary"
-href="#about">
+      </div>
+    </section>
 
-Learn More
+  </main>
 
-</a>
 
-</div>
+  <!-- FOOTER -->
+  <footer>
 
-</div>
+    <div class="container footer-inner">
 
+      <div>
+        <div class="footer-brand">FindVault</div>
+        <div>Discover. Explore. Find.</div>
+      </div>
 
+      <div class="affiliate">
+        Some links on FindVault may be affiliate links.
+        If you purchase something through one of these links,
+        FindVault may earn a commission at no additional cost to you.
+      </div>
 
-<!-- NO PRODUCT PHOTO AT TOP -->
+    </div>
 
-<div class="hero-art">
-
-<div class="hero-word">
-
-Better Finds.
-
-<span>
-
-Bigger Moments.
-
-</span>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
-<section
-class="section"
-id="products">
-
-<div class="container">
-
-
-<div class="section-label">
-
-Featured Products
-
-</div>
-
-
-<h2>
-
-Products
-
-</h2>
-
-
-<p class="section-intro">
-
-Handpicked finds with real value. Check out the latest featured products below.
-
-</p>
-
-
-
-<div class="products">
-
-
-<!-- LOOP QUIET -->
-
-<article
-class="card"
-id="loop">
-
-
-<div class="photo-wrap">
-
-<span class="badge">
-
-FEATURED
-
-</span>
-
-
-<img
-src="data:image/jpeg;base64,REPLACE_WITH_LOOP_IMAGE_DATA"
-alt="Loop Quiet Earplugs">
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Loop Quiet Earplugs
-
-</h3>
-
-
-<div class="tagline">
-
-Better focus. Less noise.
-
-</div>
-
-
-<p class="desc">
-
-Get more peace and quiet with Loop Quiet Earplugs. Perfect for travel, work, studying, and everyday life.
-
-</p>
-
-
-<a
-class="amazon"
-href="https://amzn.to/4xKMxjd"
-target="_blank"
-rel="nofollow sponsored noopener">
-
-a &nbsp; View on Amazon →
-
-</a>
-
-
-<div class="features">
-
-<span>
-◉ Noise Reduction
-</span>
-
-<span>
-▣ Travel Friendly
-</span>
-
-<span>
-◌ Everyday Comfort
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-
-<!-- WIRELESS HEADPHONES -->
-
-<article
-class="card"
-id="headphones">
-
-
-<div class="photo-wrap">
-
-<span class="badge">
-
-FEATURED
-
-</span>
-
-
-<img
-src="data:image/jpeg;base64,REPLACE_WITH_HEADPHONES_IMAGE_DATA"
-alt="Wireless Over-Ear Headphones">
-
-</div>
-
-
-<div class="card-body">
-
-
-<h3>
-
-Wireless Over-Ear Headphones
-
-</h3>
-
-
-<div class="tagline">
-
-Immersive sound. All-day comfort.
-
-</div>
-
-
-<p class="desc">
-
-Enjoy powerful sound and long-lasting battery life with these wireless over-ear headphones. Great for music, travel, and everyday use.
-
-</p>
-
-
-<a
-class="amazon"
-href="https://amzn.to/3STNaYL"
-target="_blank"
-rel="nofollow sponsored noopener">
-
-a &nbsp; View on Amazon →
-
-</a>
-
-
-<div class="features">
-
-<span>
-♫ Hi-Res Audio
-</span>
-
-<span>
-▣ Long Battery Life
-</span>
-
-<span>
-✈ Travel Friendly
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================
-     EMPTY PHOTO SECTION
-========================= -->
-
-<section id="photos">
-
-</section>
-
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section
-class="section"
-id="about">
-
-<div class="container about">
-
-
-<div>
-
-<div class="section-label">
-
-About FindVault
-
-</div>
-
-
-<h2>
-
-Our Mission
-
-</h2>
-
-
-<p>
-
-FindVault is a simple product-discovery website focused on interesting finds, useful recommendations, and products worth taking a closer look at.
-
-</p>
-
-
-<p>
-
-We keep it simple, useful, and easy to explore — so visitors can find products without endless searching.
-
-</p>
-
-</div>
-
-
-
-<div class="disclosure">
-
-<h3>
-
-ⓘ &nbsp; Affiliate Disclosure
-
-</h3>
-
-
-<p>
-
-Some links on FindVault may be affiliate links. If you purchase something through one of these links, FindVault may earn a commission at no additional cost to you.
-
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-<div class="container footer">
-
-
-<a
-class="brand"
-href="#home">
-
-<div class="logo">
-
-◉
-
-</div>
-
-<span>
-
-FINDVAULT
-
-</span>
-
-</a>
-
-
-
-<div class="footer-links">
-
-<a href="#home">
-
-Home
-
-</a>
-
-<a href="#products">
-
-Products
-
-</a>
-
-<a href="#about">
-
-About
-
-</a>
-
-</div>
-
-
-
-<div class="small">
-
-© 2026 FindVault. All rights reserved.
-
-</div>
-
-
-</div>
-
-</footer>
-
-
-
-<script>
-
-function toggleMenu() {
-
-  document
-    .getElementById("navlinks")
-    .classList
-    .toggle("open");
-
-}
-
-
-document
-.querySelectorAll(".navlinks a")
-.forEach(link => {
-
-  link.addEventListener("click", () => {
-
-    document
-      .getElementById("navlinks")
-      .classList
-      .remove("open");
-
-  });
-
-});
-
-</script>
-
+  </footer>
 
 </body>
 </html>
